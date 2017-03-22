@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -34,14 +34,16 @@ gem 'devise' #User Authentication
 gem 'figaro'  #Keeps you API keys secure
 gem 'pundit' #Authorization
 gem 'kaminari' #Pagination
-gem "twitter-bootstrap-rails" #Bootstrap
-gem 'bootstrap_form' #Bootstrap Forms
-gem "font-awesome-rails" #Icons
+gem 'font-awesome-rails' #Icons
 gem 'omniauth-facebook' #Facebook Login
+#cors middleware for omniauth
+gem 'rack-cors', require: 'rack/cors'
+gem 'materialize-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry'
 end
 
 group :development do
@@ -49,8 +51,8 @@ group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  # gem 'spring'
+  # gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :production do
