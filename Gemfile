@@ -36,6 +36,8 @@ gem 'pundit' #Authorization
 gem 'kaminari' #Pagination
 gem 'font-awesome-rails' #Icons
 gem 'omniauth-facebook' #Facebook Login
+#cors middleware for omniauth
+gem 'rack-cors', require: 'rack/cors'
 gem 'materialize-sass'
 
 group :development, :test do
