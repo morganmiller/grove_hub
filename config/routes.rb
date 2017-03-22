@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "dashboard#index"
-    resources :action_items, only: [:index, :create, :new]
+    resources :action_items, only: [:index, :create, :new, :destroy]
 
   end
 

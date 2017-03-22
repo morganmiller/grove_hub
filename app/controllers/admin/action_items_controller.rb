@@ -18,6 +18,13 @@ class Admin::ActionItemsController < Admin::BaseController
     @action_item = ActionItem.new
   end
 
+  def destroy
+    action_item = ActionItem.find(params[:id])
+    action_item.destroy!
+    flash[:notice] = "Action deleted successfully"
+    redirect_to admin_action_items_path
+  end
+
   private
 
   def action_item_params
