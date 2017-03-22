@@ -1,0 +1,16 @@
+<div class="row">
+  <h1>All Actions</h1>
+
+
+<div class="col s6">
+  <div id="admin-actions">
+    <ul>
+      <% @actions.each do |action| %>
+        <li class="col s3">
+          <%= action.description %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
