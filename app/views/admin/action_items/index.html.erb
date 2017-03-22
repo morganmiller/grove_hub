@@ -1,14 +1,14 @@
 <div class="row">
   <h1>All Actions</h1>
 
-  <%= link_to "Add new action", new_admin_action_path %><br>
+  <%= link_to "Add new action", new_admin_action_item_path %><br>
 
 <div class="col s6">
   <div id="admin-actions">
     <ul>
-      <% @actions.each do |action| %>
+      <% @action_items.each do |action_item| %>
         <li class="col s3">
-          <%= action.description %>
+          <%= action_item.description %>
         </li>
         <% end %>
       </ul>
