@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before { @category = FactoryGirl.build(:category) }
+  subject { @category }
+
+  it { should respond_to(:name) }
+
+  it { should be_valid }
+  it { should validate_presence_of(:name) }
 end
