@@ -1,0 +1,24 @@
+<div class="row">
+  <h1>Create New Action</h1>
+
+  <%= form_for [:admin, @action_item] do |f| %>
+    <div class="col s12">
+      <%= f.label :description %><br>
+      <%= f.text_area :description, required: true %><br>
+    </div>
+    <div class="col s12">
+      Category
+      <div id="category-items">
+        <% @categories.each do |category| %>
+          <div>
+            <%= radio_button_tag :category, category.id, required: true %>
+            <%= label_tag "category_#{category.id}", category.name %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col s12">
+    <%= f.submit "Create action", class:"btn right" %>
+    </div>
+  <% end %>
+</div>

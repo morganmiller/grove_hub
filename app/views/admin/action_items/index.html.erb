@@ -1,0 +1,19 @@
+<div class="row">
+  <h1>All Actions</h1>
+
+  <%= link_to "Add new action", new_admin_action_item_path %><br>
+
+<div class="col s12">
+  <div id="admin-actions">
+    <ul>
+      <% @action_items.each do |action_item| %>
+        <div class="col s12">
+          <div class="col s1"><%= link_to 'X', admin_action_item_path(action_item.id), method: :delete %></div>
+          <div class="col s7"><%= action_item.description %></div>
+          <div class="col s4"><%= action_item.category.name %></div>
+        </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
