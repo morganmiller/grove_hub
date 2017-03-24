@@ -5,6 +5,8 @@ RSpec.describe ActionItem, type: :model do
   subject { @action_item }
 
   it { should respond_to(:description) }
+  it { should respond_to(:category) }
+  it { should respond_to(:algorithm) }
 
   it { should be_valid }
   it { should validate_presence_of(:description) }
