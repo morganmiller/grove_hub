@@ -7,6 +7,12 @@
       <%= f.text_area :description, required: true %><br>
     </div>
     <div class="col s12">
+      <%= f.fields_for :algorithm do |algorithm_fields| %>
+        <%= algorithm_fields.label :formula %><br>
+        <%= algorithm_fields.text_field :formula %><br>
+      <% end %>
+    </div>
+    <div class="col s12">
       Category
       <div id="category-items">
         <% @categories.each do |category| %>
