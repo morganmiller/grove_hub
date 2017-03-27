@@ -22,6 +22,8 @@ class ActionItem < ApplicationRecord
   private
 
   def algorithm_group_counts
+    # Association proxy methods do not work here on 1st validation,
+      # b/c it's before algorithms have saved to database
     self.algorithms
       .group_by { |obj| obj[:group] }
       .map { |k, v| [k,v.count] }
