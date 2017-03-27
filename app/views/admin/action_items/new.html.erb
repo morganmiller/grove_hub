@@ -6,12 +6,10 @@
       <%= f.label :description %><br>
       <%= f.text_area :description, required: true %><br>
     </div>
-    <div class="col s12">
-      <%= f.fields_for :algorithm do |algorithm_fields| %>
-        <%= algorithm_fields.label :formula %><br>
-        <%= algorithm_fields.text_field :formula %><br>
-      <% end %>
+    <div id="action-item-algorithms" class="algorithms">
+      <%= render 'algorithm_fields', f: f %>
     </div>
+    <p><%= link_to_add_fields "Add Algorithm", f, :algorithms %></p>
     <div class="col s12">
       Category
       <div id="category-items">

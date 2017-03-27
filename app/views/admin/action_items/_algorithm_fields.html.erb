@@ -1,0 +1,6 @@
+<div class="col s12">
+  <%= f.fields_for :algorithms do |algorithm_fields| %>
+    <%= algorithm_fields.label :formula %><br>
+    <%= algorithm_fields.text_field :formula %><br>
+  <% end %>
+</div>

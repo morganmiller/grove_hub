@@ -18,7 +18,7 @@ class Admin::ActionItemsController < Admin::BaseController
   def new
     @action_item = ActionItem.new
     @categories = Category.all
-    @action_item.build_algorithm
+    @action_item.algorithms.build
   end
 
   def destroy
@@ -31,7 +31,7 @@ class Admin::ActionItemsController < Admin::BaseController
   private
 
   def action_item_params
-    params.require(:action_item).permit(:id, :description, algorithm_attributes: [:id, :formula])
+    params.require(:action_item).permit(:id, :description, algorithms_attributes: [:id, :formula])
   end
 
 end
