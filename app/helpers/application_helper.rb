@@ -20,8 +20,7 @@ module ApplicationHelper
   end
 
   def format_form_params(fields, association)
-    fields.slice!("[#{association}]")
-    fields
+    fields.gsub("[#{association}]", "")
   end
 
 end
