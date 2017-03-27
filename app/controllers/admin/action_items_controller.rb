@@ -31,7 +31,7 @@ class Admin::ActionItemsController < Admin::BaseController
   private
 
   def action_item_params
-    params.require(:action_item).permit(:id, :description, algorithms_attributes: [:id, :formula])
+    params.require(:action_item).permit(:id, :description, algorithms_attributes: [:id, :formula, :group])
   end
 
 end
