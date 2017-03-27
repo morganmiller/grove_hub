@@ -8,7 +8,14 @@ RSpec.describe Algorithm, type: :model do
   subject { @algorithm }
 
   it { should respond_to(:formula) }
+  it { should respond_to(:group) }
 
   it { should be_valid }
   it { should validate_presence_of(:formula) }
+  it { should validate_presence_of(:group) }
+
+  it { should define_enum_for(:group).with([
+    "Carbon Saved", "Water Saved"
+  ])}
+
 end

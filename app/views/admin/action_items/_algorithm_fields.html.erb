@@ -1,6 +1,11 @@
-<div class="col s12">
-  <%= f.fields_for :algorithms do |algorithm_fields| %>
+<%= f.fields_for :algorithms do |algorithm_fields| %>
+  <div class="col s12">
     <%= algorithm_fields.label :formula %><br>
     <%= algorithm_fields.text_field :formula %><br>
-  <% end %>
-</div>
+  </div>
+  <div class="col s12">
+    <%= algorithm_fields.label :group %><br>
+    <%= algorithm_fields.select :group, Algorithm.groups.keys %>
+  </div>
+
+<% end %>
