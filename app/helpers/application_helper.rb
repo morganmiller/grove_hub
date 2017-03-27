@@ -3,7 +3,6 @@ module ApplicationHelper
     html_options = args.extract_options!.symbolize_keys
 
     function = block_given? ? update_page(&block) : args[0] || ''
-    # function = format_form_params(function)
     onclick = "#{"#{html_options[:onclick]}; " if html_options[:onclick]}#{function}; return false;"
     href = html_options[:href] || '#'
 
