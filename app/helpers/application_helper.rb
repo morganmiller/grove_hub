@@ -14,8 +14,8 @@ module ApplicationHelper
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
       render(association.to_s.singularize + "_fields", :f => builder)
     end
-    fields = format_form_params(escape_javascript(fields), association.to_s)
-    link_to_function(name, "add_fields(this, \"#{association}\", \"#{fields}\")", html_options)
+    formatted_fields = format_form_params(escape_javascript(fields), association.to_s)
+    link_to_function(name, "add_fields(this, \"#{association}\", \"#{formatted_fields}\")", html_options)
   end
 
   def format_form_params(fields, association)
