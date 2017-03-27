@@ -9,7 +9,7 @@
     <div id="action-item-algorithms" class="algorithms">
       <%= render 'algorithm_fields', f: f %>
     </div>
-    <p><%= link_to_add_fields "Add Algorithm", f, :algorithms %></p>
+    <p><%= link_to_add_fields "Add Algorithm", f, :algorithms, {class: 'btn small', id: 'add-algorithm-btn'} %></p>
     <div class="col s12">
       Category
       <div id="category-items">
