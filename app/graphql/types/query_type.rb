@@ -10,6 +10,12 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
+  field :categories, CategoryType.to_list_type do
+    resolve -> (obj, args, ctx) {
+      Category.all
+    }
+  end
+
   field :action_items, ActionItemType.to_list_type do
     argument :category_name, types.String
     resolve -> (obj, args, ctx) {
