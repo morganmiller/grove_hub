@@ -8,7 +8,7 @@ class ActionItem < ApplicationRecord
 
   validates :description, presence: true
 
-  scope :category, -> (category_name) {
+  scope :by_category, -> (category_name) {
     joins(:category).where(categories: {name: category_name})
   }
 
