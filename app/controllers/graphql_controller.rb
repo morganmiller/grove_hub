@@ -6,7 +6,7 @@ class GraphqlController < ApplicationController
       # Query context goes here, for example:
       # current_user: current_user,
     }
-    result = GroveHubSchema.execute(query, variables: variables, context: context)
+    result = Schema.execute(query, variables: variables, context: context)
     render json: result
   end
 

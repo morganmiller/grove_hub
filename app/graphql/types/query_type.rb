@@ -10,4 +10,11 @@ Types::QueryType = GraphQL::ObjectType.define do
       "Hello World!"
     }
   end
+
+  field :category, CategoryType do
+    argument :id, types.ID
+    resolve -> (obj, args, ctx) {
+      Category.find(args["id"])
+    }
+  end
 end
