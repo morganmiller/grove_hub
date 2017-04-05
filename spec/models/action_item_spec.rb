@@ -16,7 +16,7 @@ RSpec.describe ActionItem, type: :model do
     before { @action_item = FactoryGirl.create(:action_item) }
 
     it 'filters action items by category name' do
-      categorized_actions = ActionItem.category(@action_item.category.name)
+      categorized_actions = ActionItem.by_category(@action_item.category.name)
       expect(categorized_actions).to include(@action_item)
     end
   end
