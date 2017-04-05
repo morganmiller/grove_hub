@@ -29,6 +29,13 @@
     "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
+    "snazzy": "^6.0.0",
+    "standard": "^10.0.0",
     "webpack-dev-server": "^2.4.2"
+  },
+  "standard": {
+    "ignore": [
+      "/app/assets/javascripts/*"
+    ]
   }
 }
