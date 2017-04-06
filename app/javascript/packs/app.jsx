@@ -3,22 +3,32 @@
 // of the page.
 import React from 'react'
 import ReactDOM from 'react-dom'
+import ApolloClient from 'apollo-client'
+import { ApolloProvider } from 'react-apollo'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
+const client = new ApolloClient({})
 
-Hello.defaultProps = {
-  name: 'David'
+const App = () => {
+  return <div>Hello World!</div>
 }
-
-Hello.propTypes = {
-  name: React.PropTypes.string
+const Root = () => {
+  return (
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={App} />
+        </Switch>
+      </BrowserRouter>
+    </ApolloProvider>
+  )
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name='React' />,
-    document.body.appendChild(document.createElement('div'))
-  )
+  ReactDOM.render( <Root />, document.querySelector('#root'))
 })
+
+
+{/* <BrowserRouter>
+  <Match exactly pattern='/' component={App} />
+</BrowserRouter> */}
