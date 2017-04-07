@@ -23,5 +23,9 @@ Types::QueryType = GraphQL::ObjectType.define do
       cat ? ActionItem.by_category(cat) : ActionItem.all
     }
   end
+  #
+  # field :current_user, UserType do
+  #  TODO: Add UserType, auth query 
+  # end
 
 end
