@@ -248,6 +248,7 @@ DEPENDENCIES
   graphql
   jbuilder (~> 2.5)
   jquery-rails
+  jwt
   kaminari
   listen (~> 3.0.5)
   materialize-sass

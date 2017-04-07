@@ -277,4 +277,13 @@ Devise.setup do |config|
 
   #config for Facebook
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET']
+
+  config.warden do |manager|
+    # Registering your new Strategy
+    manager.strategies.add(:jwt, Devise::Strategies::JsonWebToken)
+
+    # Adding the new JWT Strategy to the top of Warden's list,
+    # Scoped by what Devise would scope (typically :user)
+    manager.default_strategies(scope: :user).unshift :jwt
+  end
 end
