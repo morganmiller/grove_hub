@@ -15,6 +15,4 @@ Rails.application.routes.draw do
 
   end
 
-  get '*path', to: 'home#index' # TODO: Make specific routes for client
-
 end
