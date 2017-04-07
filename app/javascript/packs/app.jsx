@@ -22,5 +22,5 @@ const Root = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render( <Root />, document.querySelector('#root'))
+  ReactDOM.render(<Root />, document.querySelector('#root'))
 })
