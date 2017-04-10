@@ -9,5 +9,6 @@ LoginMutation = GraphQL::Relay::Mutation.define do
 
   resolve ->(obj, args, ctx) {
     # TODO: use devise auth somehow
+    #...may need a separate sessions_controller leveraging devise for token auth
   }
 end
