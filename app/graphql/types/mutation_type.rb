@@ -1,5 +1,5 @@
 Types::MutationType = GraphQL::ObjectType.define do
   name "Mutation"
 
-  field :login, field: LoginMutation.field
+  field :login, LoginMutation.field
 end

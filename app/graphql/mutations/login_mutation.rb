@@ -1,14 +1,15 @@
 LoginMutation = GraphQL::Relay::Mutation.define do
   name "LoginMutation"
-  return_type UserType
 
   input_field :email, !types.String
   input_field :password, !types.String
-  # Expects args from client to be like so:
-  #   input: {email: $email, password: $password}
+
+  return_field :user, UserType
 
   resolve ->(obj, args, ctx) {
-    # TODO: use devise auth somehow
-    #...may need a separate sessions_controller leveraging devise for token auth
+    user = User.find_by(email: args["email"])
+    if user && user.valid_password?(args["password"])
+      return {user: user}
+    end
   }
 end
