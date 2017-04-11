@@ -1,5 +1,13 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+class JsonFailureApp < Devise::FailureApp
+  def respond
+    self.status = 401
+    self.content_type = 'json'
+    self.response_body = '{"error" : "authentication error"}'
+  end
+end
+
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -277,4 +285,14 @@ Devise.setup do |config|
 
   #config for Facebook
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET']
+
+  config.warden do |manager|
+    # Registering your new Strategy
+    manager.strategies.add(:jwt, Devise::Strategies::JsonWebToken)
+
+    # Adding the new JWT Strategy to the top of Warden's list,
+    # Scoped by what Devise would scope (typically :user)
+    manager.default_strategies(scope: :user).unshift :jwt
+    manager.failure_app = JsonFailureApp
+  end
 end

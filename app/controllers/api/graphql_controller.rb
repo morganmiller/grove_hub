@@ -1,16 +1,15 @@
-class GraphqlController < ApplicationController
+class Api::GraphqlController < Api::ApiController
   def execute
     variables = ensure_hash(params[:variables])
     query = params[:query]
     context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
+      current_user: current_user
     }
     result = Schema.execute(query, variables: variables, context: context)
     render json: result
   end
 
-  private
+private
 
   # Handle form data, JSON body, or a blank value
   def ensure_hash(ambiguous_param)
