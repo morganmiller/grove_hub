@@ -3,7 +3,7 @@ class Api::SessionsController < Api::ApiController
 
   def login
     user = User.find_by(email: auth_params[:email])
-    if user.valid_password?(auth_params[:password])
+    if user && user.valid_password?(auth_params[:password])
       sign_in("user", user)
       render json: {user: {
         email: current_user.email,
@@ -11,9 +11,9 @@ class Api::SessionsController < Api::ApiController
         jwt: JWTWrapper.encode({user_id:current_user.id})
       }}.to_json
     else
-      render json: {user: {
-        errors: "Invalid username or password"
-      }}.to_json
+      render json: {
+        error: "Invalid username or password"
+      }, status: 401
     end
   end
 
