@@ -12,7 +12,7 @@ class Api::SessionsController < Api::ApiController
       }}.to_json
     else
       render json: {
-        error: "Invalid username or password"
+        errors: ["Invalid username or password"]
       }, status: 401
     end
   end
@@ -28,7 +28,7 @@ class Api::SessionsController < Api::ApiController
       }}.to_json
     else
       render json: {
-        error: user.errors.full_messages.join(", ")
+        errors: user.errors.full_messages
       }, status: 401
     end
   end
