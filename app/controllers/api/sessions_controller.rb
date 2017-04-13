@@ -1,5 +1,5 @@
 class Api::SessionsController < Api::ApiController
-  skip_before_action :authenticate_user!, only: [:login]
+  skip_before_action :authenticate_user!, only: [:login, :signup]
 
   def login
     user = User.find_by(email: auth_params[:email])
@@ -13,6 +13,22 @@ class Api::SessionsController < Api::ApiController
     else
       render json: {
         error: "Invalid username or password"
+      }, status: 401
+    end
+  end
+
+  def signup
+    user = User.create(auth_params)
+    if user.valid?
+      sign_in("user", user)
+      render json: {user: {
+        email: current_user.email,
+        id: current_user.id,
+        jwt: JWTWrapper.encode({user_id:current_user.id})
+      }}.to_json
+    else
+      render json: {
+        error: user.errors.full_messages.join(", ")
       }, status: 401
     end
   end
